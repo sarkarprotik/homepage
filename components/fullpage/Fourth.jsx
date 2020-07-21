@@ -23,7 +23,6 @@ const Fourth = withNavigationContext(({ fullpage }) => {
       let data = await result.json()
       setData(data);
       setLoading(false)
-
     }
     fetchData();
   }, []);
@@ -33,7 +32,7 @@ const Fourth = withNavigationContext(({ fullpage }) => {
       <Section wrapper={true} backgroundColor='#292c35'>
         <Background src="https://images.unsplash.com/flagged/photo-1558963675-94dc9c4a66a9" />
         <div className="grid-container" style={{ width: 'auto', paddingTop: '20vh', paddingLeft: '15vh' }}>
-          {!loading ? <Loading /> : (data.map((data_item, index) => {
+          {loading ? <Loading /> : (data.map((data_item, index) => {
               let string = data_item.content
               let string_array = string.split('SPLIT');
               let text = string_array[0]
